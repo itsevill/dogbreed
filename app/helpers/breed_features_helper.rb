@@ -1,0 +1,2 @@
+module BreedFeaturesHelper
+end

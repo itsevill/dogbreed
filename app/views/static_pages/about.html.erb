@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <div class="row">
+    <!-- Main content column -->
+    <div class="col-md-8">
+      <h1>About Our Dog Breeds Application</h1>
+      <p>This application uses data from various sources to provide information about dog breeds and their sub-breeds. Here are the details of the data sources used:</p>
+      <h2>For the project, we plan to use three data sources:</h2>
+      <ul>
+        <li><strong>Dog Breed API:</strong>  This data source provides a comprehensive list of dog breeds and their sub-breeds. The data is structured in a JSON format, with the main breed as a key and an array of sub-breeds as the value. We will require two database tables to store this data: Breeds and BreedVarieties. The Breeds table will have columns for id (primary key), name (breed name), and image_url (to store a link to an image of the breed). The BreedVarieties table will have an id (primary key), name (sub-breed name), and breed_id (foreign key from Breeds table). <br>  Example structure <br>{
+          "affenpinscher": [],
+          "african": [],
+          "bulldog": ["boston", "english", "french"]
+        }
+        </li>
+        <li><strong>Random Dog Image API:</strong> This data source provides random images for different breeds. The JSON data consists of a message key with the image URL and a status key indicating success.
+        <br> Example structure: <br>
+        {
+    "message": "https://images.dog.ceo/breeds/greyhound-italian/n02091032_378.jpg",
+    "status": "success"
+}
+
+        </li>
+        <li><strong>Faker Gem:</strong> We used the Faker gem as a third data source to generate mock data that might be useful for testing purposes or to supplement the actual data. We can integrate this by generating fake breed and sub-breed names and inserting them into our Breeds and BreedVarieties tables.</li>
+      </ul>
+     
+    </div>
+   
+    <div class="col-md-4">
+    <p>Our database schema is designed to store and organize this data efficiently. Below is the Entity-Relationship Diagram (ERD) that represents our database schema:</p>
+      <img src="<%= asset_path('err.png') %>" alt="ERD Diagram" class="img-fluid">
+    </div>
+  </div>
+</div>
+
+
+

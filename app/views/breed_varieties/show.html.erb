@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="mb-4"><%= @breed_variety.name %></h1>
+
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">
+            <strong>This variety belongs to the breed:</strong>
+            <%= link_to @breed_variety.breed.name, breed_path(@breed_variety.breed), class: 'card-link' %>
+          </p>
+        </div>
+      </div>
+
+      <%= link_to 'Back to Breed', breed_path(@breed_variety.breed), class: 'btn btn-primary mt-4' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="display-4"><%= @breed.name %></h1>
+      <img src="<%= @breed.image_url %>" class="img-fluid rounded mb-4" alt="<%= @breed.name %>">
+    </div>
+    <div class="col-lg-4">
+      <!-- Varieties -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title h4">Varieties</h2>
+          <% if @breed.breed_varieties.any? %>
+            <ul class="list-group list-group-flush">
+              <% @breed.breed_varieties.each do |variety| %>
+                <li class="list-group-item"><%= link_to variety.name, breed_breed_variety_path(@breed, variety) %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p class="text-muted">No varieties available.</p>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title h4">Features</h2>
+          <% if @breed.breed_features.any? %>
+            <ul class="list-group list-group-flush">
+              <% @breed.breed_features.each do |feature| %>
+                <li class="list-group-item"><%= link_to feature.feature_name, breed_breed_feature_path(@breed, feature) %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p class="text-muted">No features available.</p>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Comments -->
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title h4">Comments</h2>
+          <% if @breed.comments.any? %>
+            <% @breed.comments.each do |comment| %>
+              <div class="mb-3">
+                <p><strong><%= comment.email %></strong> says:</p>
+                <p class="bg-light p-2 rounded"><%= comment.comment %></p>
+              </div>
+            <% end %>
+          <% else %>
+            <p class="text-muted">No comments available.</p>
+          <% end %>
+        </div>
+      </div>
+
+      <%= link_to 'Back', breeds_path, class: 'btn btn-primary mt-4' %>
+    </div>
+  </div>
+</div>

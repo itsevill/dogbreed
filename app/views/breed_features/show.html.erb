@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="mb-3">Feature: <%= @breed_feature.feature_name %></h1>
+      
+      <div class="mb-3">
+        <h2>Description</h2>
+        <p class="bg-light p-3 rounded">
+          <%= @breed_feature.feature_description %>
+        </p>
+      </div>
+      
+      <div class="breed-with-feature mb-4">
+        <h2>This feature is found in the following breed:</h2>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= link_to @breed_feature.breed.name, breed_path(@breed_feature.breed), class: 'text-decoration-none' %>
+          </li>
+        </ul>
+      </div>
+
+      <%= link_to 'Back to Breed', breed_path(@breed_feature.breed), class: 'btn btn-secondary mt-3' %>
+    </div>
+  </div>
+</div>
